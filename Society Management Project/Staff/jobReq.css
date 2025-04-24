@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+  }
+  /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f9fa;
+}
+
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #d9eeee;
+    border: 1px solid #ddd;
+    color: #34838a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #34838a;
+}
+
+/* Select and Textarea Styling */
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background-color: #72b044;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    align-self: center;
+    width: fit-content;
+}
+
+/* Button Hover Effect */
+button[type="submit"]:hover {
+    background-color: #5f9035;
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button[type="submit"] {
+        width: 100%; /* Make the button full-width for smaller screens */
+        padding: 10px;
+        font-size: 18px;
+    }
+}

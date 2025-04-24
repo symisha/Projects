@@ -1,0 +1,82 @@
+/* EmployeesRequest.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #256164;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table thead {
+  background: #34838a;
+  color: white;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+  background: #f3f8ff;
+}
+
+table tr:hover {
+  background: #eaf4ff;
+}
+
+button {
+  background: #00b4d8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #0077b6;
+}
+
+p {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+      width: 95%;
+  }
+
+  table th, table td {
+      padding: 8px;
+      font-size: 14px;
+  }
+}

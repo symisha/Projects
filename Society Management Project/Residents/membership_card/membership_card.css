@@ -1,0 +1,184 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(to bottom right, #dbae5f, #ad8641); */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Membership Container */
+.membership-container {
+    max-width: 800px;
+    margin: 20px auto;
+    /* margin-top: 70px; */
+    padding: 20px;
+    background: #b2dada;
+    /*border: 5px solid #dbae5f;*/
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    color:#34838a;
+}
+
+/* Membership Cards */
+.membership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures cards are spaced out */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 30%;
+    background: #ffffff;
+    border: none;
+    padding: 25px 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Header */
+.card-header {
+    /*background-color: #dbae5f;*/
+    padding: 8px;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Body */
+.card-body {
+    padding: 8px 15px;
+    text-align: left;
+}
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-body li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+}
+
+.card-body li::before {
+    content: '•';
+    font-size: 20px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+/* Card Footer */
+.card-footer {
+    background-color: #dbae5f;
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Membership Levels */
+.diamond {
+    background: radial-gradient(circle, #cfac6f 0%, #d1aa5d 100%);
+    color: #000;
+}
+
+.golden {
+    background: linear-gradient(135deg, #fff2cc 0%, #ffdd99 100%);
+    color: #000;
+}
+
+.silver {
+    background: linear-gradient(135deg, #f7f7f7 0%, #e0e0e0 100%);
+    color: #000;
+}
+
+/* Buttons */
+button {
+    background-color: #82c055;
+    color: #fff;
+   
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #72b044;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Align all buttons in one line */
+    gap: 10px; /* Create spacing between buttons */
+    margin-top: 20px;
+}
+
+/* Points Button */
+.points-button {
+    background-color: #ffc107;
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.points-button:hover {
+    background-color: #e5a70f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+/*@media only screen and (max-width: 768px) {
+    .card {
+        width: 48%;
+    }
+
+    .button-container {
+        flex-wrap: wrap; 
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    .button-container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}*/

@@ -1,0 +1,61 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f9fa; 
+}
+
+.feedback-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #d9eeee;
+    border: 1px solid #ddd;
+    color: #34838a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #72b044;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+    margin-left: 465px;
+}
+
+button[type="submit"]:hover {
+    background-color: #72b044; 
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+}

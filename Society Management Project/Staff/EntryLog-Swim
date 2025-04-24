@@ -1,0 +1,14 @@
+<?php
+require_once("../Includes/config.php");
+
+$stmt = $conn->prepare("Select Membership_Type from membership_cards where Resident_ID = ? AND status = 'paid'");
+$stmt->bind_param("i", $Resident_ID);
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $type = $row['Membership_Type'];
+    if ($type == 'diamond')
+}
+?>

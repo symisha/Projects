@@ -1,0 +1,78 @@
+-- Create Admin table
+CREATE TABLE Admin (
+    First_Name VARCHAR(15),
+    Last_Name VARCHAR(15),
+    CNIC BIGINT NOT NULL,
+    Username CHAR(10),
+    Password VARCHAR(15),
+    Admin_ID INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (Admin_ID),  -- Admin_ID is now the primary key
+    UNIQUE (CNIC)            -- CNIC must remain unique
+);
+
+-- Create Houses table
+CREATE TABLE Houses (
+    House_No INT NOT NULL,
+    Address VARCHAR(60),
+    Owner_ID INT,
+    PRIMARY KEY (House_No)
+);
+-- Create Residents table
+CREATE TABLE Residents (
+    First_Name VARCHAR(15),
+    Last_Name VARCHAR(15),
+    CNIC BIGINT NOT NULL,
+    Username CHAR(10),
+    Password VARCHAR(15),
+    Owned_House_ID INT,
+    House_ID INT,
+    Entry_Admin_ID INT NOT NULL,
+    Resident_ID INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (Resident_ID),      -- Resident_ID as the single-column primary key
+    UNIQUE (CNIC),                  -- CNIC should remain unique
+    FOREIGN KEY (Entry_Admin_ID) REFERENCES Admin(Admin_ID)
+);
+
+
+-- Create ResidentsHouses table to link Residents with Houses
+CREATE TABLE ResidentsHouses (
+    Residents_CNIC BIGINT NOT NULL,
+    Houses_House_No INT NOT NULL,
+    PRIMARY KEY (Residents_CNIC, Houses_House_No),
+    FOREIGN KEY (Residents_CNIC) REFERENCES Residents(CNIC),
+    FOREIGN KEY (Houses_House_No) REFERENCES Houses(House_No)
+);
+
+-- Create Visitors table
+CREATE TABLE Visitors (
+    First_Name VARCHAR(15),
+    Last_Name VARCHAR(15),
+    CNIC BIGINT NOT NULL,
+    Resident_ID INT NOT NULL,
+    PRIMARY KEY (CNIC),
+    FOREIGN KEY (Resident_ID) REFERENCES Residents(Resident_ID)
+);
+
+CREATE TABLE Membership_Cards (
+    Membership_ID INT NOT NULL AUTO_INCREMENT,
+    Resident_ID INT NOT NULL,
+    Membership_Type ENUM('Diamond', 'Golden', 'Silver'),
+    Membership_Fee DECIMAL(10,2),
+    Subscription_Date DATE,
+    Expiration_Date DATE,
+    PRIMARY KEY (Membership_ID),
+    UNIQUE (Resident_ID),
+    FOREIGN KEY (Resident_ID) REFERENCES Residents(Resident_ID)
+);
+
+CREATE TABLE announcement (
+  announcement_id int(11) NOT NULL,
+  announcement_subject varchar(250) NOT NULL,
+  announcement_text text NOT NULL,
+  announcement_status int(1) NOT NULL,
+  created_at date DEFAULT current_timestamp()
+);
+
+
+I have forgotten to add email in Resident column 
+and also added a column token  

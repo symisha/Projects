@@ -1,0 +1,13 @@
+Array
+(
+    [pp_Version] => 1.1
+    [pp_TxnType] => CARD
+    [pp_MerchantID] => MC138130
+    [pp_Password] => 2t341yz6y0
+    [pp_Amount] => 7000
+    [pp_TxnRefNo] => TXN_673b99fbee7bf
+    [pp_TxnDateTime] => 20241119004811
+    [pp_TxnExpiryDateTime] => 20241119014811
+    [pp_ReturnURL] => http://localhost/Project1/DB/Project/Billing/Payment/Response.php
+    [pp_SecureHash] => c47328b3d771ac1e9d714b9e5039b4f11ca9975893574e7f2e32a6cc7382bbbb
+)
