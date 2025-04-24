@@ -1,0 +1,194 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.sidebar {
+    display: flex;             /* Enable flexbox */
+    flex-direction: column;    /* Stack elements vertically */
+    height: 100vh;             /* Ensure the sidebar fills the viewport height */
+    background-color: #34838a; /* Sidebar background */
+    color: white;
+    align-items: center;       /* Center-align the content horizontally */
+    padding: 0px 10px;
+    position: fixed;           /* Fix the sidebar to the left */
+    top: 0;
+    left: 0;
+    margin:0 !important;
+
+}
+.top-bar {
+    position: fixed; /* Fix at the top */
+    top: 0;
+    left: 250px; /* Align after the sidebar */
+    width: calc(100% - 250px); /* Full width minus sidebar width */ 
+    height: 70px;
+    background-color: #34838a;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 0 0 20px;
+    z-index: 1000;
+    margin:0 !important;
+  }
+  .top-bar .greeting {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    padding: 0px 70px;
+  }
+  .top-bar .greeting i {
+    font-size: 22px;
+    color: white; /* Icon color */
+    padding: 0 8px;
+  }
+
+  .sidebar .logo-details {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar .logo-details img {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(3, 1, 1);
+    min-width: 60px;
+    text-align: center
+  }
+  /* .sidebar .logo-details .logo_name{
+    color: rgb(3, 1, 1);
+    font-size: 24px;
+    font-weight: 500;
+  } */
+  .sidebar .nav-links {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .sidebar .nav-links li {
+    margin: 0px 0;
+  }
+  
+  .sidebar .nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar .nav-links li a .bx {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+  
+  .sidebar .nav-links li a:hover {
+    background-color: #2c7076; /* Darker shade for hover */
+    border-radius: 15px;
+  }
+  
+  .sidebar .nav-links li a.active {
+    background-color: #256164; /* Active link color */
+    border-radius: 15px;
+  }
+  .sidebar {
+    position: relative; /* Ensure positioning within the sidebar */
+  }
+  
+  .sidebar .logout-btn {
+    position: absolute;
+    bottom: 20px;
+    width: 230px;
+}
+
+.sidebar .logout-btn a {
+    background-color: #bc5252; 
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+
+}
+
+.sidebar .logout-btn a:hover {
+    /* background-color: #256164; Hover color */
+    background-color: #a30000 !important;
+    color: white;
+    border-radius: 15px;
+}
+  
+  /* Main Content */
+  /* .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+  } */
+  .main-content {
+    /* margin-left: 250px; Same as the sidebar width */
+    /* padding: 20px; */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    /* flex: 1; */
+}
+  /* Main Content Area */
+  .main-content-area {
+    margin-top: 60px; /*Add margin to compensate for fixed top bar*/
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  #content {
+    padding: 10px;
+    background: #f1f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  #announcements {
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .announcement {
+    margin-bottom: 15px;
+    padding: 5px 0 0 5px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Hover effect */
+    border-radius: 8px; 
+  }
+  .announcement:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+  }
+  .announcement h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #05555c;
+  }
+  .announcement p {
+    margin: 5px 0;
+    color: #333;
+  }
+  .announcement small {
+    display: block;
+    color: #888;
+  }
+  .announcement hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+  

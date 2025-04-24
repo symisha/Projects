@@ -1,0 +1,97 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+html,body{
+    background: #34838a;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: Arial, sans-serif;
+
+}
+::selection{
+    color: #fff;
+    background: #34838a;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}.container .form {
+    background: #fff;
+    padding: 30px 35px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 600px; /* Adjust the width as needed */
+    max-height: 550px; /* Set a maximum height to prevent it from being too tall */
+    /*overflow: auto; /* Add scroll if content exceeds max height */
+}
+
+.container .form form .form-control{
+    height: 40px;
+    font-size: 15px;
+}
+.container .form form .forget-pass{
+    margin: -15px 0 15px 0;
+}
+.container .form form .forget-pass a{
+   font-size: 15px;
+}
+.container .form form .button{
+    background: #34838a;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.container .form form .button:hover{
+    background: #34838a;
+}
+.container .form form .link{
+    padding: 5px 0;
+}
+.container .form form .link a{
+    color: #34838a;
+}
+.container .login-form form p{
+    font-size: 14px;
+}
+.container .row .alert{
+    font-size: 14px;
+}
+.wrapper{
+    position: relative;
+    height: 55px;
+    width: 320px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+  }
+  .wrapper input{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #34838a;
+    padding-left: 15px;
+    font-size: 18px;
+    outline: none;
+    border-radius: 5px;
+  }
+  .wrapper input::placeholder{
+    font-size: 17px;
+  }
+  .wrapper span{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #34838a;
+    cursor: pointer;
+    display: none;
+  }
+  .wrapper input:valid ~ span{
+    display: block;
+  }
+  .wrapper span i.hide-btn::before{
+    content: "\f070";
+  }
+  .alert-success {
+        background-color: #d4edda !important; /* Bootstrap’s default green */
+        color: #155724 !important;
+    }

@@ -1,0 +1,233 @@
+<?php
+require_once("../Includes/config.php");
+session_start();
+
+// Check if user is logged in
+$resident_ID = $_SESSION['Resident_ID'];
+$Bill_id;
+$Amount;
+$Due;
+$status;
+$month;
+$Membership_Fee;
+// Query to fetch billing records for the resident
+$query = "SELECT Billing_ID, Billing_Amount, Due_Date, Status, Billing_Month FROM Billing WHERE Resident_ID = ?";
+if ($stmt = $conn->prepare($query)) {
+    $stmt->bind_param("i", $resident_ID);
+    $stmt->execute();
+    $stmt->bind_result($Bill_id, $Amount, $Due, $status, $month);
+    
+    // Initialize arrays for paid and unpaid bills
+    $paidBills = [];
+    $unpaidBills = [];
+
+    // Fetch each billing record and separate based on status
+    while ($stmt->fetch()) {
+        // Classify bills into paid and unpaid
+        $billRecord = [
+            'Bill_id' => $Bill_id,
+            'Amount' => $Amount,
+            'Due' => $Due,
+            'status' => $status,
+            'month' => $month,
+        ];
+        
+        if ($status == 'Paid') {
+            $paidBills[] = $billRecord;
+        } elseif ($status == 'Pending') {
+            $unpaidBills[] = $billRecord;
+        }
+    }
+
+    $stmt->close();
+}
+
+// Save billing details in session for further use
+$_SESSION['billing_details'] = [
+    'unpaid_bills' => $unpaidBills
+];
+$num=1;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Page</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d9eeee; /* Base color for container */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 2% auto;
+            background: #ffffff; /* White background for content */
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            line-height: 1.4;
+        }
+
+        h2 {
+            color: #2c7373;
+            font-size: 20px;
+            font-weight: 1000;
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #a6dcdc;
+            padding-bottom: 4px;
+            margin-top: 2px;
+        }
+
+        /* Billing Sections */
+        .billing-section {
+            margin-bottom: 10px;
+        }
+
+        .billing-section h3 {
+            color: #337d7d;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 2px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #a6dcdc;
+            margin-top: 2px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            background-color: #ffffff; /* White rows */
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px; /* Reduced padding */
+            border-bottom: 1px solid #a6dcdc;
+            font-size: 14px; /* Reduced font size */
+        }
+
+        th {
+            background-color: #bfe9e9;
+            color: #2c7373;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light gray for even rows */
+        }
+
+        tr:hover {
+            background-color: #d9eeee;
+        }
+
+        .action-btn {
+            background-color: #34838a; /* Button color */
+            color: white;
+            border: none;
+            padding: 6px 10px; /* Reduced padding */
+            font-size: 13px; /* Smaller button font size */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .action-btn:hover {
+            background-color: #2a6e6e; /* Slightly darker on hover */
+        }
+
+        .no-records {
+            text-align: center;
+            font-size: 14px;
+            color: #6ba5a5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Billing Management</h2>
+
+        <!-- Unpaid Bills Section -->
+        <div class="billing-section">
+            <h3>Current Unpaid Bills</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Month</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example rows -->
+                    <?php if (!empty($unpaidBills)) : ?>
+                    <?php foreach ($unpaidBills as $index => $record) : ?>
+                      <tr>
+                        <td><?= htmlspecialchars($record['Bill_id'])?></td>
+                        <td><?= htmlspecialchars($record['Amount']) ?></td>
+                        <td><?= htmlspecialchars($record['Due']) ?></td>
+                        <td><?= htmlspecialchars($record['status']) ?></td>
+                        <td><?= htmlspecialchars($record['month']) ?></td>
+                        <td><button class="btn"><a href="Payment/SendRequest.php?billing_id=<?= $record['Bill_id'] ?>&amount=<?= $record['Amount'] ?>&num=<?= $num?>&resident_id=<?= $resident_ID?>"target="_top">Pay</a>
+                        </button></td>
+                      </tr>
+                    <?php endforeach; ?>
+                    <?php else : ?> 
+                    <!-- No unpaid bills -->
+                    <tr>
+                        <td colspan="6" class="no-records">No unpaid bills found.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Previous Invoices Section -->
+        <div class="billing-section">
+            <h3>Previous Invoices</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Amount</th>
+                        <th>Paid Date</th>
+                        <th>Status</th>
+                        <th>Month</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($paidBills)) : ?>
+                    <?php foreach ($paidBills as $index => $record) : ?>
+                      <tr>
+                        <td><?= htmlspecialchars($record['Bill_id'])?></td>
+                        <td><?= htmlspecialchars($record['Amount']) ?></td>
+                        <td><?= htmlspecialchars($record['Due']) ?></td>
+                        <td><?= htmlspecialchars($record['status']) ?></td>
+                        <td><?= htmlspecialchars($record['month']) ?></td>
+                      </tr>
+                    <?php endforeach; ?>
+                    <?php else : ?> 
+                    <tr>
+                        <td colspan="6" class="no-records">No more invoices found.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</body>
+</html>

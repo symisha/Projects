@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Visitors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            
+            font-size: 10px; /* Reduce the overall font size */
+        }
+        .form-control {
+            font-size: 10px; /* Smaller text for input fields */
+            padding: 5px 10px; /* Compact the padding */
+        }
+        label {
+            font-size: 10px; /* Smaller labels */
+        }
+        .btn {
+            font-size: 10px; /* Smaller button text */
+        }
+    </style>
+    <script>
+        function generateVisitorFields() {
+            const count = document.getElementById("visitor_count").value;
+            const container = document.getElementById("visitor_fields");
+            container.innerHTML = "";
+
+            for (let i = 0; i < count; i++) {
+                container.innerHTML += `
+                    <div class="form-group">
+                        <input type="text" name="First_Name_${i}" placeholder="First Name ${i + 1}" class="form-control" required>
+                        <input type="text" name="Last_Name_${i}" placeholder="Last Name ${i + 1}" class="form-control" required>
+                        <input type="tel" name="Visitor_CNIC_${i}" pattern="[0-9]{13}" placeholder="CNIC ${i + 1}" class="form-control" required>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Visitors</h2>
+        <form method="POST" action ="AddVisitor.php">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="Email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Purpose of Visit</label>
+                <input type="text" name="Purpose_of_Visit" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Vehicle Number</label>
+                <input type="text" name="Vehicle_Number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Number of Visitors</label>
+                <input type="number" id="visitor_count" name="visitor_count" class="form-control" min="1" onchange="generateVisitorFields()" required>
+            </div>
+            <div id="visitor_fields"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

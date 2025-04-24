@@ -1,0 +1,291 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero .hero-text {
+    /* position: absolute; */
+    margin-top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+/* Navigation Links Container */
+.hero .nav-links-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.hero .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.hero .nav-links li {
+    display: inline-block;
+}
+
+.hero .nav-links a {
+    color: #05555c;
+    text-decoration: none;
+    padding: 10px 20px;
+    /* font-family: poppins; */
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.hero .nav-links a:hover {
+    background: #34838a;
+    color: #fff;
+    transform: scale(1.05); /* Added scale effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added box-shadow */
+}
+
+/* About Us Section */
+.about-us {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #34838a;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    /* margin-bottom: 40px; */
+    color: #555;
+}
+/* Our Services Section */
+.our-services {
+    padding-bottom: 100px;
+    padding-top: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.our-services h2 {
+    padding-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #34838a;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.service-item {
+    background-color: #d9eeee; /* Muted light teal, complementing #34838a */
+    padding: 20px;
+    border: 1px solid #b2dada; /* Matching border */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+}
+
+.service-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #34838a;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+.service-item:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #b2dada; /* Slightly darker teal on hover */
+}
+/* FAQ Section */
+.faq-section {
+    /* padding: 40px 20px; */
+    padding-bottom: 100px;
+    padding-top: 40px;
+    
+    background-color: #eef6f9;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #34838a;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    border: 1px solid #34838a;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: #f1f9fa;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #34838a;
+    font-weight: bold;
+}
+
+.faq-icon {
+    font-size: 30px;
+    font-weight: bold;
+    color: #34838a;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+    color: #555;
+}
+
+.faq-answer p {
+    margin: 10px 0;
+    /* font-size: 16px; */
+}
+
+/* JavaScript-controlled styles for expanded state */
+.faq-item.open .faq-answer {
+    max-height: 150px;
+    padding: 10px 20px;
+}
+
+.faq-item.open .faq-icon {
+    font-size: 30px; /* Adjust the size of the + icon */
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+.faq-icon:hover {
+    transform: scale(1.2); /* Slightly increase size on hover */
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+  
+.footer {
+    position: absolute;
+    bottom: 0;
+    /* width: 1539px; */
+    width: calc(100% - 40px);
+    padding: 20px 20px;
+    background-color: #34838a;
+    color: #fff;
+    text-align: center;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #34838a;
+    display: block;
+    padding: 5px 10px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #34838a;
+    color: #fff;
+}
+
+/* Show dropdown menu on hover or click */
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
