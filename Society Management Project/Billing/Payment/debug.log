@@ -2,8 +2,8 @@ Array
 (
     [pp_Version] => 1.1
     [pp_TxnType] => CARD
-    [pp_MerchantID] => MC138130
-    [pp_Password] => 2t341yz6y0
+    [pp_MerchantID] => 
+    [pp_Password] =>
     [pp_Amount] => 7000
     [pp_TxnRefNo] => TXN_673b99fbee7bf
     [pp_TxnDateTime] => 20241119004811
