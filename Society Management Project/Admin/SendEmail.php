@@ -15,7 +15,7 @@ function sendEmail($email, $subject, $body, $Resident_Id = null, $First_Name = n
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'societyproject08@gmail.com';
-        $mail->Password   = 'cgwx oehe enkx funv';   // Gmail app password
+        $mail->Password   = '';   // Gmail app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
